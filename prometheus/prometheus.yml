@@ -22,14 +22,6 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'machine-vm'
-
-    scrape_interval: 10s
-    scrape_timeout: 5s
-
-    static_configs:
-      - targets: ['cadvisor:8080']
-
   - job_name: 'metrics-gateway'
 
     scrape_interval: 10s
