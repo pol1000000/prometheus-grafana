@@ -32,6 +32,8 @@ scrape_configs:
     # - targets: ['IPorHostname:Port','...', etc.]
     #   labels: 'SomeLabelForGrafana'
       - targets: ['london.my-netdata.io:80']
-        labels: 'demo-netdata-london'
+        labels: 
+          demo-netdata-london: label
       - targets: ['frankfurt.my-netdata.io:80']
-        labels: 'demo-netdata-frankfurt'
+        labels: 
+          demo-netdata-frankfurt: label
