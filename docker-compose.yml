@@ -1,13 +1,12 @@
-version: '3'
+version: '3.5'
 
 services:
-  prom_graf:
     prometheus:
       image: prom/prometheus
       ports:
         - 9090:9090
       networks:
-      - prom_graf      
+      - prom_graf
       volumes:
         - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 
@@ -22,5 +21,4 @@ services:
 
 networks:
   prom_graf:
-    external:
-      name: prom_graf
+    name: prom_graf
