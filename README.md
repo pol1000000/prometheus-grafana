@@ -1,9 +1,11 @@
-## Docker Compose Prometheus with a Grafana UI
+## A simple example for https://docs.netdata.cloud/backends/prometheus/
 
 ### Prerequisites
-You need `docker-compose` - checkout the [install guide](https://docs.docker.com/compose/install/)
+- `docker-compose` - checkout the [install guide](https://docs.docker.com/compose/install/)
+- `netdata` - checkout the [install guide](https://docs.netdata.cloud/packaging/installer/)
 
 ### Usage
-```
-$ docker-compose run -d
-```
+`docker-compose up -d`
+
+### Add new Netdata sources:
+Check [./prometheus/prometheus.yml](./prometheus/prometheus.yml#L31)
