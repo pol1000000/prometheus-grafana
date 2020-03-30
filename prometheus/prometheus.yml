@@ -5,7 +5,7 @@ global:
   # Attach these labels to any time series or alerts when communicating with
   # external systems (federation, remote storage, Alertmanager).
   external_labels:
-      monitor: 'prometheus-stack-monitor'
+      monitor: 'netdata-prometheus-grafana'
 
 # Load and evaluate rules in this file every 'evaluation_interval' seconds.
 rule_files:
@@ -13,19 +13,25 @@ rule_files:
   # - "second.rules"
 
 scrape_configs:
-
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
 
-    scrape_interval: 10s
-    scrape_timeout: 5s
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
 
     static_configs:
       - targets: ['localhost:9090']
 
-  - job_name: 'metrics-gateway'
-
-    scrape_interval: 10s
-    scrape_timeout: 5s
+  - job_name: 'netdata'
+    # This is API endpoint for Netdata 
+    metrics_path: /api/v1/allmetrics
+    params:
+      format: [ prometheus ]
 
     static_configs:
-      - targets: ['metrics-gateway:9091']
+    # - targets: ['IPorHostname:Port','...', etc.]
+    #   labels: 'SomeLabelForGrafana'
+      - targets: ['london.my-netdata.io:80']
+        labels: 'demo-netdata-london'
+      - targets: ['frankfurt.my-netdata.io:80']
+        labels: 'demo-netdata-frankfurt'
