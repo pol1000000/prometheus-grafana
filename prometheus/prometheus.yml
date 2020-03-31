@@ -33,7 +33,7 @@ scrape_configs:
     #   labels: 'SomeLabelForGrafana'
       - targets: ['london.my-netdata.io:80']
         labels: 
-          demo-netdata-london: label
+          host: 'demo-netdata-london'
       - targets: ['frankfurt.my-netdata.io:80']
         labels: 
-          demo-netdata-frankfurt: label
+          host: 'demo-netdata-frankfurt'
